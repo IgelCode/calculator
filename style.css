@@ -34,6 +34,7 @@ button {
   justify-content: end;
   align-items: center;
   font-size: 14px;
+  padding-right: 5px;
 }
 #display {
   display: flex;
@@ -43,16 +44,17 @@ button {
   height: 50px;
   width: 300px;
   font-size: 20px;
+  padding-right: 5px;
 }
 .bot {
   display: flex;
   gap: 5px;
 }
-.botleft {
+.numbers {
   display: flex;
   flex-wrap: wrap;
 }
-.botright {
+.operators {
   display: flex;
   flex-wrap: wrap;
 }

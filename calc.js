@@ -17,57 +17,39 @@ const clear = document.querySelector("#clear");
 const display = document.querySelector("#display");
 const opdisplay = document.querySelector("#opdisplay");
 const container = document.querySelector(".container");
-let value = "notSetYet";
+const numbers = document.querySelector(".numbers");
+const operators = document.querySelector(".operators");
+let value = 0;
+let valueTwo = 0;
 console.log(value);
-container.addEventListener("click", (event) => {
+
+numbers.addEventListener("click", getValue);
+
+operators.addEventListener("click", (event) => {
+  let btnValue = event.target.id;
   const isButton = event.target.nodeName === "BUTTON";
   if (!isButton) {
     return;
   }
-  switch (event.target.id) {
-    case "one":
-      display.textContent = "1";
-      value = 1;
-      console.log(value);
-      break;
-    case "two":
-      display.textContent = "2";
-      value = 2;
-      break;
-    case "three":
-      display.textContent = "3";
-      value = 3;
-      break;
-    case "four":
-      display.textContent = "4";
-      value = 4;
-      break;
-    case "five":
-      display.textContent = "5";
-      value = 5;
-      break;
-    case "six":
-      display.textContent = "6";
-      value = 6;
-      break;
-    case "seven":
-      display.textContent = "7";
-      value = 7;
-      break;
-    case "eight":
-      display.textContent = "8";
-      value = 8;
-      break;
-    case "nine":
-      display.textContent = "9";
-      value = 9;
-      break;
-    case "zero":
-      display.textContent = "0";
-      value = 0;
-      break;
-    default:
-      display.textContent = "Lets do some maths :)";
+  if (btnValue === "plus") {
+    opdisplay.textContent = `${display.textContent} +`;
+    display.textContent = "";
+  } else if (btnValue === "minus") {
+    opdisplay.textContent = `${display.textContent} -`;
+    display.textContent = "";
+  } else if (btnValue === "multiply") {
+    opdisplay.textContent = `${display.textContent} *`;
+    display.textContent = "";
+  } else if (btnValue === "divide") {
+    opdisplay.textContent = `${display.textContent} /`;
+    display.textContent = "";
+  } else if (btnValue === "equals") {
+    val = display.textContent;
+    opdisplay.textContent = `${display.textContent} =`;
+    display.textContent = val + display.textContent;
+  } else if (btnValue === "clear") {
+    opdisplay.textContent = "";
+    display.textContent = 0;
   }
 });
 
@@ -83,6 +65,48 @@ function operate(operator) {
   } else {
     return;
   }
+}
+
+function getValue(event) {
+  let btnValue = event.target.id;
+  const isButton = event.target.nodeName === "BUTTON";
+  if (!isButton) {
+    return;
+  } else if (btnValue === "one") {
+    display.textContent = "1";
+    value = 1;
+  } else if (btnValue === "two") {
+    display.textContent = "2";
+    value = 2;
+  } else if (btnValue === "three") {
+    display.textContent = "3";
+    value = 3;
+  } else if (btnValue === "four") {
+    display.textContent = "4";
+    value = 4;
+  } else if (btnValue === "five") {
+    display.textContent = "5";
+    value = 5;
+  } else if (btnValue === "six") {
+    display.textContent = "6";
+    value = 6;
+  } else if (btnValue === "seven") {
+    display.textContent = "7";
+    value = 7;
+  } else if (btnValue === "eight") {
+    display.textContent = "8";
+    value = 8;
+  } else if (btnValue === "nine") {
+    display.textContent = "9";
+    value = 9;
+  } else if (btnValue === "zero") {
+    display.textContent = "0";
+    value = 0;
+  } else {
+    display.textContent = "Lets do some maths :)";
+    return;
+  }
+  console.log(value);
 }
 
 function add(a, b) {
