@@ -26,6 +26,15 @@ button {
   height: 50px;
   width: 100px;
 }
+#opdisplay {
+  display: flex;
+  background-color: azure;
+  height: 50px;
+  width: 300px;
+  justify-content: end;
+  align-items: center;
+  font-size: 14px;
+}
 #display {
   display: flex;
   justify-content: end;
@@ -33,4 +42,17 @@ button {
   background-color: azure;
   height: 50px;
   width: 300px;
+  font-size: 20px;
+}
+.bot {
+  display: flex;
+  gap: 5px;
+}
+.botleft {
+  display: flex;
+  flex-wrap: wrap;
+}
+.botright {
+  display: flex;
+  flex-wrap: wrap;
 }
