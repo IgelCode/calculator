@@ -67,10 +67,13 @@ function getOperator(event) {
 }
 
 function evaluate() {
-  valueTwo = Number(display.textContent);
-  opdisplay.textContent = `${valueOne} ${operand} ${valueTwo} =`;
-  display.textContent = operate(operand, valueOne, valueTwo);
-  operand = null;
+  if (operand != null && valueOne !== undefined) {
+    valueTwo = Number(display.textContent);
+    opdisplay.textContent = `${valueOne} ${operand} ${valueTwo} =`;
+    display.textContent = operate(operand, valueOne, valueTwo);
+    lastOperand = operand;
+    operand = null;
+  }
 }
 
 function operate(operand, a, b) {
