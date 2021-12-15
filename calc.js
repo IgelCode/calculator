@@ -71,7 +71,6 @@ function evaluate() {
     valueTwo = Number(display.textContent);
     opdisplay.textContent = `${valueOne} ${operand} ${valueTwo} =`;
     display.textContent = operate(operand, valueOne, valueTwo);
-    lastOperand = operand;
     operand = null;
   }
 }
@@ -86,9 +85,8 @@ function operate(operand, a, b) {
   } else if (operand === "*") {
     return multiplys(a, b);
   } else if (operand === "/") {
-    if (b === 0) {
-      display.textContent = "Cant divide by 0!";
-      return;
+    if (b == 0) {
+      return (display.textContent = "Cant divide by 0!");
     } else {
       return divides(a, b);
     }
@@ -163,6 +161,5 @@ function multiplys(a, b) {
 }
 
 function divides(a, b) {
-  console.log(a, b);
   return (a / b).toFixed(2);
 }
