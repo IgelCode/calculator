@@ -100,6 +100,7 @@ function clearDisplay() {
   value = "";
   valueOne = "";
   valueTwo = "";
+  operand = null;
 }
 
 function getValue(event) {
