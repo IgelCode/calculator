@@ -64,7 +64,7 @@ button.operatorztwo {
 #opdisplay {
   margin-top: 40px;
   display: flex;
-  background-color: azure;
+  background-color: rgb(241, 241, 229);
   height: 50px;
   width: 300px;
   justify-content: end;
@@ -78,7 +78,7 @@ button.operatorztwo {
   display: flex;
   justify-content: end;
   align-items: center;
-  background-color: azure;
+  background-color: rgb(241, 241, 229);
   height: 50px;
   width: 300px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

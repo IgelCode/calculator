@@ -11,7 +11,6 @@ let valueOne = 0;
 let valueTwo = 0;
 let operand = null;
 
-//Getting the first Value/Number
 equals.addEventListener("click", evaluate);
 clear.addEventListener("click", clearDisplay);
 numbers.addEventListener("click", getValue);
@@ -151,15 +150,12 @@ function getValue(event) {
 function add(a, b) {
   return (a + b).toFixed(2);
 }
-
 function substract(a, b) {
   return (a - b).toFixed(2);
 }
-
 function multiplys(a, b) {
   return (a * b).toFixed(2);
 }
-
 function divides(a, b) {
   return (a / b).toFixed(2);
 }
