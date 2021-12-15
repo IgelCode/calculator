@@ -20,93 +20,121 @@ const container = document.querySelector(".container");
 const numbers = document.querySelector(".numbers");
 const operators = document.querySelector(".operators");
 let value = 0;
+let valueOne = 0;
 let valueTwo = 0;
-console.log(value);
 
+//Getting the first Value/Number
+equals.addEventListener("click", evaluate);
+clear.addEventListener("click", clearDisplay);
 numbers.addEventListener("click", getValue);
+operators.addEventListener("click", getOperator);
 
-operators.addEventListener("click", (event) => {
+function getOperator(event) {
   let btnValue = event.target.id;
   const isButton = event.target.nodeName === "BUTTON";
   if (!isButton) {
     return;
   }
   if (btnValue === "plus") {
-    opdisplay.textContent = `${display.textContent} +`;
+    operand = "+";
+    valueOne = parseInt(display.textContent);
+    opdisplay.textContent = `${display.textContent} ${operand}`;
     display.textContent = "";
   } else if (btnValue === "minus") {
-    opdisplay.textContent = `${display.textContent} -`;
+    operand = "-";
+    valueOne = parseInt(display.textContent);
+    opdisplay.textContent = `${display.textContent} ${operand}`;
     display.textContent = "";
   } else if (btnValue === "multiply") {
-    opdisplay.textContent = `${display.textContent} *`;
+    operand = "*";
+    valueOne = parseInt(display.textContent);
+    opdisplay.textContent = `${display.textContent} ${operand}`;
     display.textContent = "";
   } else if (btnValue === "divide") {
-    opdisplay.textContent = `${display.textContent} /`;
+    operand = "/";
+    valueOne = parseInt(display.textContent);
+    opdisplay.textContent = `${display.textContent} ${operand}`;
     display.textContent = "";
-  } else if (btnValue === "equals") {
-    val = display.textContent;
-    opdisplay.textContent = `${display.textContent} =`;
-    display.textContent = val + display.textContent;
-  } else if (btnValue === "clear") {
-    opdisplay.textContent = "";
-    display.textContent = 0;
   }
-});
+}
 
-function operate(operator) {
-  if (operator === "+") {
-    add();
-  } else if (operator === "-") {
-    substract();
-  } else if (operator === "*") {
-    multiply();
-  } else if (operator === "/") {
-    divide();
+function evaluate() {
+  valueTwo = parseInt(display.textContent);
+  opdisplay.textContent = `${valueOne} ${operand} ${valueTwo} =`;
+  display.textContent = operate(operand, valueOne, valueTwo);
+}
+
+function operate(operand, a, b) {
+  a = Number(a);
+  b = Number(b);
+  if (operand === "+") {
+    return add(a, b);
+  } else if (operand === "-") {
+    return substract(a, b);
+  } else if (operand === "*") {
+    return multiplys(a, b);
+  } else if (operand === "/") {
+    if (b === 0) {
+      display.textContent = "Cant divide by 0!";
+      return;
+    } else {
+      return divides(a, b);
+    }
   } else {
     return;
   }
 }
 
+function clearDisplay() {
+  opdisplay.textContent = "";
+  display.textContent = "";
+  value = "";
+  valueOne = "";
+  valueTwo = "";
+}
+
 function getValue(event) {
   let btnValue = event.target.id;
   const isButton = event.target.nodeName === "BUTTON";
+  if (display.textContent === "0") {
+    clearDisplay();
+  }
   if (!isButton) {
     return;
   } else if (btnValue === "one") {
-    display.textContent = "1";
     value = 1;
+    display.textContent += value;
   } else if (btnValue === "two") {
-    display.textContent = "2";
     value = 2;
+    display.textContent += value;
   } else if (btnValue === "three") {
-    display.textContent = "3";
     value = 3;
+    display.textContent += value;
   } else if (btnValue === "four") {
-    display.textContent = "4";
     value = 4;
+    display.textContent += value;
   } else if (btnValue === "five") {
-    display.textContent = "5";
     value = 5;
+    display.textContent += value;
   } else if (btnValue === "six") {
-    display.textContent = "6";
     value = 6;
+    display.textContent += value;
   } else if (btnValue === "seven") {
-    display.textContent = "7";
     value = 7;
+    display.textContent += value;
   } else if (btnValue === "eight") {
-    display.textContent = "8";
     value = 8;
+    display.textContent += value;
   } else if (btnValue === "nine") {
-    display.textContent = "9";
     value = 9;
+    display.textContent += value;
   } else if (btnValue === "zero") {
-    display.textContent = "0";
     value = 0;
+    display.textContent += value;
   } else {
-    display.textContent = "Lets do some maths :)";
+    clearDisplay();
     return;
   }
-  console.log(value);
 }
 
 function add(a, b) {
@@ -124,5 +152,3 @@ function multiplys(a, b) {
 function divides(a, b) {
   return a / b;
 }
-
-function displayed() {}
