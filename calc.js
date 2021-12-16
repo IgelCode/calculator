@@ -23,6 +23,10 @@ function deleteLast() {
   display.textContent = x.toString().split("").slice(0, -1).join("");
 }
 
+function round(number) {
+  return Math.round(number * 1000) / 1000;
+}
+
 function getOperator(event) {
   let btnValue = event.target.id;
   const isButton = event.target.nodeName === "BUTTON";
@@ -70,7 +74,7 @@ function evaluate() {
   if (operand != null && valueOne !== undefined) {
     valueTwo = Number(display.textContent);
     opdisplay.textContent = `${valueOne} ${operand} ${valueTwo} =`;
-    display.textContent = operate(operand, valueOne, valueTwo);
+    display.textContent = round(operate(operand, valueOne, valueTwo));
     operand = null;
   }
 }
@@ -159,14 +163,14 @@ function getValue(event) {
 }
 
 function add(a, b) {
-  return (a + b).toFixed(2);
+  return a + b;
 }
 function substract(a, b) {
-  return (a - b).toFixed(2);
+  return a - b;
 }
 function multiplys(a, b) {
-  return (a * b).toFixed(2);
+  return a * b;
 }
 function divides(a, b) {
-  return (a / b).toFixed(2);
+  return a / b;
 }
