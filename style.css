@@ -36,6 +36,10 @@ button {
   margin: 2px;
   border-color: black;
 }
+button:hover {
+  border-color: grey;
+  border-radius: 15px;
+}
 
 button.numberz {
   width: 120px;
