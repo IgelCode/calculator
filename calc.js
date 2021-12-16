@@ -1,6 +1,7 @@
 const equals = document.querySelector("#equals");
 const clear = document.querySelector("#clear");
 const del = document.querySelector("#del");
+const dot = document.querySelector("#dot");
 const display = document.querySelector("#display");
 const opdisplay = document.querySelector("#opdisplay");
 const container = document.querySelector(".container");
@@ -10,7 +11,7 @@ let value = 0;
 let valueOne = 0;
 let valueTwo = 0;
 let operand = null;
-
+console.log(value);
 equals.addEventListener("click", evaluate);
 clear.addEventListener("click", clearDisplay);
 numbers.addEventListener("click", getValue);
@@ -141,6 +142,16 @@ function getValue(event) {
   } else if (btnValue === "zero") {
     value = 0;
     display.textContent += value;
+  } else if (btnValue === "dot") {
+    value = ".";
+    console.log(display.textContent);
+    if (display.textContent === "") {
+      display.textContent = "0";
+    }
+    if (display.textContent.includes(".")) {
+      return;
+    }
+    display.textContent += ".";
   } else {
     clearDisplay();
     return;
