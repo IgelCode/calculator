@@ -116,6 +116,8 @@ function getValue(event) {
   }
   if (!isButton) {
     return;
+  } else if (display.textContent.length >= 16) {
+    return;
   } else if (btnValue === "one") {
     value = 1;
     display.textContent += value;

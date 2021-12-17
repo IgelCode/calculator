@@ -73,7 +73,7 @@ button.operatorztwo {
   display: flex;
   background-color: rgb(241, 241, 229);
   height: 50px;
-  width: 300px;
+  width: 350px;
   justify-content: end;
   align-items: center;
   font-size: 14px;
@@ -87,7 +87,7 @@ button.operatorztwo {
   align-items: center;
   background-color: rgb(241, 241, 229);
   height: 50px;
-  width: 300px;
+  width: 350px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   padding-right: 5px;
